@@ -1,0 +1,12 @@
+<!-- string interpolation: resolves to a string in the end -->
+<p>
+  Server with ID {{serverId}} is {{getServerStatus()}}
+</p>
+<p>
+  {{'Server with '}} ID {{serverId}} is {{serverStatus}}
+</p>
+
+<!-- property Binding -->
+<p>
+  <button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
+</p>
