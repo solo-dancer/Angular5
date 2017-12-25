@@ -1,6 +1,7 @@
 <!-- Assignment 2 : Ta daaaa -->
 
 <!-- 1. Add a input field which updates a property(''username') via two way binding -->
+<label>userName</label>
 <input
   type="text"
   class="form-control"
@@ -15,3 +16,19 @@
   class="btn banner"
   [disabled]="isUserNameEmpty"
   (click)="onUpdateUsername($event)">Username</button>
+
+
+<!-- correct/easier wayout -->
+<label> username revisited</label>
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="userName"/>
+<p>the username is : {{userName}}</p>
+
+<button
+  class="btn banner"
+  [disabled]="userName == ''"
+  (click)="userName = ''">Username
+</button>
+
