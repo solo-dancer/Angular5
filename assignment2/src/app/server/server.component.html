@@ -1,0 +1,17 @@
+<!-- Assignment 2 : Ta daaaa -->
+
+<!-- 1. Add a input field which updates a property(''username') via two way binding -->
+<input
+  type="text"
+  class="form-control"
+  (input)="onUpdateUsername($event)"
+  [(ngModel)]="userName"/>
+
+<!-- 2. output the username property via String interpolation in a paragraph below input -->
+<p>the username is : {{userName}}</p>
+
+<!--3. Add a button which may be clicked if the username is NOT an empty string -->
+<button
+  class="btn banner"
+  [disabled]="isUserNameEmpty"
+  (click)="onUpdateUsername($event)">Username</button>
