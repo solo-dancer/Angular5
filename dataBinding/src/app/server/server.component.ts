@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+
+
 @Component({
   selector: 'app-server',
   templateUrl: './server.component.html',
@@ -10,6 +12,8 @@ export class ServerComponent implements OnInit {
   serverId: number = 10;
   serverStatus: string = "offline";
   allowNewServer: boolean = false;
+  serverCreationStatus : string = "No server was created";
+  serverName: string = 'testServer';
 
   getServerStatus() {
     return this.serverStatus;
@@ -26,4 +30,14 @@ export class ServerComponent implements OnInit {
   ngOnInit() {
   }
 
+  onCreateServer() {
+    this.serverCreationStatus
+        = "The Server was created , with Name : " + this.serverName;
+  }
+
+  onUpdateServerName(event: Event) {
+    console.log(event);
+    this.serverName = (<HTMLInputElement>event.target).value;
+
+  }
 }

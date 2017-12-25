@@ -1,12 +1,35 @@
-<!-- string interpolation: resolves to a string in the end -->
+<!-- 1. string interpolation: resolves to a string in the end -->
 <p>
   Server with ID {{serverId}} is {{getServerStatus()}}
 </p>
 <p>
   {{'Server with '}} ID {{serverId}} is {{serverStatus}}
 </p>
+<p>{{ serverName }}</p>
 
-<!-- property Binding -->
+<!-- 2. property Binding indicated by square brackets-->
+<button class="btn banner" [disabled]="!allowNewServer">Add Server</button>
 <p>
-  <button class="btn btn-primary" [disabled]="!allowNewServer">Add Server</button>
+  {{allowNewServer}}
 </p>
+<p [innerText]="allowNewServer">
+</p>
+
+<!-- 3. event binding -->
+<button
+  class="btn banner"
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer()">Add Server</button>
+<p>{{serverCreationStatus}}</p>
+<input
+  type ="text"
+  class="form-control"
+  (input)="onUpdateServerName($event)"
+  />
+
+<p>2 way databinding</p>
+<!--4. TWO WAY DATA BINDING reacting to events in both directions-->
+<input
+type="text"
+class="form-control"
+[(ngModel)]="serverName"/>
