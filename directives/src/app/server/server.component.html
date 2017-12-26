@@ -1,0 +1,22 @@
+<!-- button -->
+<h1>Im in the app component !!</h1>
+<label> username revisited</label>
+<input
+  type="text"
+  class="form-control"
+  [(ngModel)]="userName"/>
+
+<p
+  [ngClass]="{user: userName != ''}"
+  *ngIf="userCreated; else noUser">
+  A user has accessed this page , his name is  : {{userName}}</p>
+<ng-template #noUser>
+  <p>No user yet </p>
+</ng-template>
+
+<button
+  class="btn banner"
+  [disabled]="userName == ''"
+  [ngStyle]="{backgroundColor: getColor()}"
+  (click)= "userCreated = true">Create User
+</button>

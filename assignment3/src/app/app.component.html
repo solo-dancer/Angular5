@@ -1,0 +1,19 @@
+<!-- Assignment 3 : Directives -->
+<h1>Assignment 3 !</h1>
+<!-- 1. a button that says display details -->
+<button
+  class="btn banner"
+  (click)="onClicked()">Display Details</button>
+
+<!-- 2. a paragraph with contents
+     3. the display is toggeled-->
+<p *ngIf="isEnabled == true">The force is Strong with Luke SkyWalker</p>
+
+<!-- 4. log the number of button clicks
+     5. changing he color and background for number > 5-->
+<p
+    *ngFor="let clicko of clickArray"
+    [ngClass]="{clicko: clicko > 5}"
+    [ngStyle]="{backgroundColor: getColor(clicko)}">
+  {{clicko}}
+</p>
