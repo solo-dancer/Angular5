@@ -1,7 +1,16 @@
 import {
   AfterContentChecked,
-  AfterContentInit, AfterViewChecked, AfterViewInit, Component, DoCheck, Input, OnChanges, OnDestroy, OnInit,
-  SimpleChanges,
+  AfterContentInit,
+  AfterViewChecked,
+  AfterViewInit,
+  Component, ContentChild,
+  DoCheck,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnDestroy,
+  OnInit,
+  SimpleChanges, ViewChild,
   ViewEncapsulation
 } from '@angular/core';
 
@@ -23,6 +32,8 @@ export class ServerElementComponent implements
 
  @Input('srvElement') element: {type: string, name:string, content:string};
  @Input() name: string;
+ @ViewChild('heading') header: ElementRef;
+ @ContentChild('contentParagraph') paragraph: ElementRef;
 
   constructor() {
     console.log("Constructor called");
@@ -34,6 +45,8 @@ export class ServerElementComponent implements
 
   ngOnInit() {
     console.log("NG On InIt called");
+    console.log("The Header : " +  this.header.nativeElement.textContent);
+    console.log("The Content of Paragraph : " +  this.paragraph.nativeElement.textContent);
   }
 
   ngDoCheck() {
@@ -49,6 +62,8 @@ export class ServerElementComponent implements
 
   ngAfterViewInit(){
     console.log("NG After View Init Called");
+    console.log("The Header : " +  this.header.nativeElement.textContent);
+    console.log("The Content of Paragraph : " +  this.paragraph.nativeElement.textContent);
   }
 
   ngAfterViewChecked(){
