@@ -8,6 +8,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'NumberGame';
 
-  appElements = [{type: }]
+  oddArray : number[] =[];
+  evenArray : number[] =[];
 
+  onRecieveEmit(emitRecv: {numbre: number, kind: string}){
+    if (emitRecv.kind == 'even'){
+      this.evenArray.push(emitRecv.numbre);
+    }
+    else {
+      this.oddArray.push(emitRecv.numbre);
+    }
+  }
 }
+
+

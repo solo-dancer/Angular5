@@ -8,19 +8,19 @@ import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 export class GameControlComponent implements OnInit {
   isGameEnabled: boolean = false;
   numbre: number = 0;
-  type: string;
-
-  @Output('gameNumber') numbreEvent =  new EventEmitter<{numbre: number, type: string}>();
+  @Output('gameNumber')numbreEvent =  new EventEmitter<{numbre: number, kind: string}>();
   myTimer;
+
   constructor() { }
 
   ngOnInit() {
   }
 
-
   onStartGame() {
     this.isGameEnabled = true;
-    this.myTimer = setInterval(this.doIncrementNumber(), 1000);
+    this.myTimer = setInterval(
+      () =>this.doIncrementNumber(),
+        1000);
   }
 
   onStopGame() {
@@ -29,13 +29,12 @@ export class GameControlComponent implements OnInit {
   }
 
   doIncrementNumber(){
-    if(this.isGameEnabled){
-      this.numbre += this.numbre;
-    }
+
+    this.numbre = this.numbre+1;
+
     this.numbreEvent.emit({
       numbre: this.numbre,
-      type: this.numbre%2 == 0 ? 'even' : 'odd'
-
+      kind: this.numbre % 2 === 0 ? 'even' : 'odd'
     });
   }
 }

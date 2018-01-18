@@ -1,1 +1,3 @@
-<app-game-control (gameNumber)="onNumberRecv($event)" )></app-game-control>
+<app-game-control (gameNumber) = "onRecieveEmit($event)"></app-game-control>
+<app-even *ngFor="let evenNum of evenArray" [evenNumber]="evenNum"></app-even>
+<app-odd *ngFor="let oddNum of oddArray" [oddNumber]="oddNum"></app-odd>
